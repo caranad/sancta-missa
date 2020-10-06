@@ -22,22 +22,13 @@ function getMassData(month, day, year, num) {
             res.status(200).send(JSON.stringify(propers, null, 4));
         }
         else if (!utils.isValidDate(month, day)) {
-            // res.json({
-            //     "error": "Invalid date"
-            // })
             return new Promise((resolve, reject) => reject({ error: "Invalid date" }));
         }
         else if (num > 3) {
             if (month == 12 && day == 25) {
-                // res.json({
-                //     "error": "There can only be three Masses on Christmas Day."
-                // })
                 return new Promise((resolve, reject) => reject({ error: "There can only be three Masses on Christmas Day." }));
             }
             else {
-                // res.json({
-                //     "error": "This flag should be kept to less than 3, and ideally used during Christmas Day (25 December)."
-                // })
                 return new Promise((resolve, reject) => reject({ error: "This flag should be kept to less than 3, and ideally used during Christmas Day (25 December)." }));
             }
         }
